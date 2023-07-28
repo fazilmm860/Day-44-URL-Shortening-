@@ -29,7 +29,7 @@ try {
 
 
 
-
+require('./models/UrlShorten');
 const app = express();
 
 app.use(bodyParser.json());
@@ -43,6 +43,9 @@ app.use((req, res, next) => {
         next();
     }
 })
+require('./routes/urlshorten')(app);
+
+
 require('./services/cache')
 const PORT = 7000;
 app.listen(PORT, () => {
